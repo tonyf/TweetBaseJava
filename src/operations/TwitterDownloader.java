@@ -20,6 +20,8 @@ public class TwitterDownloader {
 		
 	}
 	
+	// Retrieves tweets using Id from last tweet
+	// Assembles the String in order
 	public String getTweets() {
 		String tweetString = "";
 		Twitter twitter = TwitterSetup.getTwitter();
@@ -51,6 +53,7 @@ public class TwitterDownloader {
 		return tweetString;
 	}
 	
+	// Test method 
 	// Duplicates code from TwitterPoster to test logic
 	public static void main(String[] args) {
 		TwitterSetup.setup();

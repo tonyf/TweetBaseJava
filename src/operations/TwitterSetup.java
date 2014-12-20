@@ -10,8 +10,11 @@ public class TwitterSetup {
 	private static String CONSUMER_KEY = "nINjrNyRwMQ77tdyqXIWkeLE5";
 	private static String CONSUMER_SECRET = "QfGb5A5OcDfCLCN7b9AUVQ0awDliUAQprC3YoNPjDU51T2WIf0";
 	
+	// Define for use without UI
+	// TODO
 	private static String ACCESS_TOKEN;
 	private static String ACCESS_TOKEN_SECRET;
+	
 	private static AccessToken accessToken;
 	private static RequestToken requestToken;
 	
@@ -19,16 +22,20 @@ public class TwitterSetup {
 		twitter.setOAuthConsumer("nINjrNyRwMQ77tdyqXIWkeLE5", "QfGb5A5OcDfCLCN7b9AUVQ0awDliUAQprC3YoNPjDU51T2WIf0");
 	}
 	
+	
+	//Sets up authentication
 	public static void setup() {
 		twitter.setOAuthConsumer("nINjrNyRwMQ77tdyqXIWkeLE5", "QfGb5A5OcDfCLCN7b9AUVQ0awDliUAQprC3YoNPjDU51T2WIf0");
 		accessToken = new AccessToken(ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
 		twitter.setOAuthAccessToken(accessToken);
 	}
 	
+	//Returns Twitter module
 	public static Twitter getTwitter() {
 		return twitter;
 	}
 	
+	//Gets OAuth AccessToken using pin that user gives
 	public static AccessToken getToken(String pin) throws TwitterException {
 		accessToken = null;
 		if (pin.length() > 0) {
@@ -50,6 +57,7 @@ public class TwitterSetup {
 		return requestToken;
 	}
 	
+	//For use with saved AccessTokens
 	public static boolean hasAccessToken() {
 		return accessToken != null;
 	}

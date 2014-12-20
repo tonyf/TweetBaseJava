@@ -9,7 +9,8 @@ public class TwitterPoster {
 	public TwitterPoster(String text) {
 		postArr = createCharArray(text);
 	}
-		
+	
+	// Creates 140 character long Strings and stores them in ArrayList
 	public ArrayList<String> createCharArray(String text) {
 		ArrayList<String> arr = new ArrayList<>();
 		while(text.length() > 140) {
@@ -22,6 +23,8 @@ public class TwitterPoster {
 		return arr;
 	}
 	
+	// Posts from the ArrayList
+	// stores the post Id of the last tweet for retrieval
 	public long post() {
 		Twitter twitter = TwitterSetup.getTwitter();
 		long headID = 0;

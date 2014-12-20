@@ -37,6 +37,7 @@ public class UploadFile {
 		System.out.println(fileName);
 	}
 	
+	// Posts to Twitter using TwitterPoster and creates a saved file that's stored in SavedFiles
 	public long post() {
 		TwitterPoster tp = new TwitterPoster(getString());
 		long id = tp.post();
@@ -44,7 +45,8 @@ public class UploadFile {
 		return id;
 	}
 	
-
+	// Gets string to be posted from the file
+	// Encodes the bytes
 	public String getString() {
 		byte[] bytes = getBytes();
         String encodedString = null;
@@ -56,6 +58,7 @@ public class UploadFile {
         return encodedString;
 	}
 	
+	// Helper method that gets the bytes from the File and encrypts them
 	private byte[] getBytes() {
         byte[] bytes = new byte[(int) uploadFile.length()];
         try {
@@ -78,6 +81,7 @@ public class UploadFile {
 		return bytes;
 	}
 	
+	// Generates private key
 	private static Key generateKey() throws Exception {
         Key key = new SecretKeySpec(keyValue, ALGO);
         return key;

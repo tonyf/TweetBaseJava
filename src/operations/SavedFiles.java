@@ -17,6 +17,7 @@ public class SavedFiles {
 		return FILES;
 	}
 	
+	// Adds StoredFile to SavedFiles
 	public static void addFile(StoredFile file) {
 		FILES.add(file);
 		try {
@@ -32,6 +33,7 @@ public class SavedFiles {
 
 	}
 	
+	// Retrieves list of files that were uploaded on launch of application
 	public static void launch() {
 		try {
 			FileInputStream fis = new FileInputStream("saved.ser");

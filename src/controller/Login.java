@@ -29,10 +29,9 @@ import javafx.scene.layout.VBox;
 
 
 public class Login extends Application {
-	private static TwitterSetup twitter;
 	@Override
 	public void start(Stage primaryStage) {
-		twitter = new TwitterSetup();
+		TwitterSetup.setup();
 		try {
 			VBox root = new VBox();
 			root.setAlignment(Pos.CENTER);
@@ -48,13 +47,13 @@ public class Login extends Application {
 			root.getChildren().add(logo);
 			root.getChildren().add(button);
 
-			if (!twitter.hasAccessToken()) {
+			// If no AccessToken is saved
+			if (!TwitterSetup.hasAccessToken()) {
 				button.setText("Sign in with Twitter");
-		        
 		        button.setOnAction(new EventHandler<ActionEvent>() {
 		            @Override public void handle(ActionEvent e) {
 						try {
-			            	URL url = new URL(twitter.getRequestToken().getAuthorizationURL()); //Some instantiated URL object
+			            	URL url = new URL(TwitterSetup.getRequestToken().getAuthorizationURL()); //Some instantiated URL object
 			            	URI uri = url.toURI();
 		            		openWebpage(uri);
 		            		login(primaryStage);
@@ -82,7 +81,7 @@ public class Login extends Application {
 		
 	}
 	
-	
+	// Login view
 	public void login(Stage primaryStage) {
 		VBox root = new VBox();
 		HBox buttonRow = new HBox();
@@ -108,7 +107,7 @@ public class Login extends Application {
         newPin.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
 				try {
-	            	URL url = new URL(twitter.getRequestToken().getAuthorizationURL()); //Some instantiated URL object
+	            	URL url = new URL(TwitterSetup.getRequestToken().getAuthorizationURL()); //Some instantiated URL object
 	            	URI uri = url.toURI();
             		openWebpage(uri);
 				} catch (Exception e1) {
@@ -152,6 +151,7 @@ public class Login extends Application {
 		main.start(primaryStage);
 	}
 	
+	// Opens webpage for OAuth
     public static void openWebpage(URI string) {
         Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
         if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -163,6 +163,7 @@ public class Login extends Application {
         }
     }
 
+    // Converts url to URI and open webpage
     public static void openWebpage(URL url) {
         try {
             openWebpage(url.toURI());

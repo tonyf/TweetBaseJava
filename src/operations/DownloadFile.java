@@ -29,6 +29,10 @@ public class DownloadFile {
 		writeToFile();
 	}
 	
+	// Converts String from tweets to bytes
+	// decrypts bytes using stored private key
+	// Writes to file
+	// Change FileOutputStream directory
 	public void writeToFile() {
 		byte[] bytes = stringToBytes();
 		FileOutputStream fileOutput;
@@ -51,6 +55,7 @@ public class DownloadFile {
 		
 	}
 	
+	// Helper method to convert String to bytes
 	private byte[] stringToBytes() {
 		byte[] bytes = null;
 		try {
