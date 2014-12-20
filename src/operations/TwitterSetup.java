@@ -26,8 +26,8 @@ public class TwitterSetup {
 	//Sets up authentication
 	public static void setup() {
 		twitter.setOAuthConsumer("nINjrNyRwMQ77tdyqXIWkeLE5", "QfGb5A5OcDfCLCN7b9AUVQ0awDliUAQprC3YoNPjDU51T2WIf0");
-		accessToken = new AccessToken(ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
-		twitter.setOAuthAccessToken(accessToken);
+//		accessToken = new AccessToken(ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
+//		twitter.setOAuthAccessToken(accessToken);
 	}
 	
 	//Returns Twitter module

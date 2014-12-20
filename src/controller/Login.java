@@ -27,7 +27,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-
+// To run login comment out lines 29 and 30 in TwitterSetup
 public class Login extends Application {
 	@Override
 	public void start(Stage primaryStage) {

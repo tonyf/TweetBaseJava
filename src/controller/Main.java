@@ -43,12 +43,14 @@ public class Main extends Application {
 			uploadV.getChildren().add(uploadLabel);
 			
 			HBox fileSelecting = new HBox();
+			fileSelecting.setAlignment(Pos.CENTER);
 			TextField path = new TextField();
 			path.setDisable(true);
 			Button browse = new Button("Browse");
 			fileSelecting.getChildren().add(path);
 			fileSelecting.getChildren().add(browse);
 			uploadV.getChildren().add(fileSelecting);
+			uploadV.setAlignment(Pos.CENTER);
 			uploadTab.setContent(uploadV);
 			
 			Button uploadButton = new Button("Upload");
@@ -78,6 +80,7 @@ public class Main extends Application {
 			VBox downloadV = new VBox();
 			Button downloadButton = new Button("Download");
 			downloadV.getChildren().add(downloadButton);
+			downloadV.setAlignment(Pos.CENTER);
 			downloadTab.setContent(downloadV);
 			
 			downloadButton.setOnAction(new EventHandler<ActionEvent>() {
