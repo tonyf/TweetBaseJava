@@ -1,7 +1,9 @@
 TweetBase
 =========
-Java rebuild of TweetBase
-Not operational as a whole; working on mitigating and hacking around Twitter's API restrictions.
+Java API to use Twitter as encrypted file storage.
+
+Build not operational. 
+Working on mitigating and hacking around Twitter's API restrictions.
 Proof of concept.
 
 To run entire application:
